@@ -1,7 +1,7 @@
 cache-generate
 ==============
 
-Crawl a web site's for generating his cache
+Crawl websites for generating their caches.
 
 # Installation
 Make the shell script executable
