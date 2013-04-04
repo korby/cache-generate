@@ -10,7 +10,10 @@ $ chmod +x cache-generate.sh
 ```
 # Usage
 Create a file and add a line containing all your websites' domains you want to be check, separated by space.
-For example : www.mysite1.com en.mysite1.com www.mysite2.de
+For example : 
+```bash
+www.mysite1.com en.mysite1.com www.mysite2.de
+```
 You can't write some comments, just put a # at the begin of the comment's line.
 
 Execute the script with the path to this file as argument.
