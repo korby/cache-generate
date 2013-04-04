@@ -1,6 +1,6 @@
 #!/bin/bash
 # (c) André Cianfarani <acianfa@gmail.com>
-# Crawl a web site's for generating his cache
+# Crawl websites for generating their caches.
 # 
 if test -z "$1"
     then
@@ -10,8 +10,8 @@ fi
 
 sites=`cat $1 | grep  -E -v '^(#|$)'`
 
-tmp="./.cache-generate-tmpdownloads"
-log="cache-generate-log.txt"
+tmp="/tmp/.cache-generate-tmpdownloads"
+log="/tmp/cache-generate-log.txt"
 
 # Remove the tmp directory's
 rm -rf $tmp
@@ -31,5 +31,6 @@ do
             --no-verbose \
             http://$site/
 done
+echo "Logs are available here : $log"
 # Remove the tmp directory's
 rm -rf $tmp
