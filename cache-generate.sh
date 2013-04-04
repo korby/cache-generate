@@ -11,7 +11,7 @@ fi
 sites=`cat $1 | grep  -E -v '^(#|$)'`
 
 tmp="/tmp/.cache-generate-tmpdownloads"
-log="/tmp/cache-generate-log.txt"
+log="/tmp/cache-generate-"
 
 # Remove the tmp directory's
 rm -rf $tmp
@@ -19,6 +19,7 @@ rm -rf $tmp
 for site in $sites
 do
     echo "Crawling $site... "
+    logExt=$site'.log';
     # Crawl the site
     time wget \
             --recursive \
@@ -27,10 +28,11 @@ do
             --directory-prefix=$tmp \
             --force-directories \
             --delete-after \
-            --output-file=$log \
+            --output-file=$log$logExt \
             --no-verbose \
             http://$site/
+    echo "Logs are available here : $log$logExt"
 done
-echo "Logs are available here : $log"
+
 # Remove the tmp directory's
 rm -rf $tmp
